@@ -16,8 +16,11 @@ class MealIngredientFactory extends Factory
      */
     public function definition()
     {
+        $rangemeal = range(1,8);
+        $rangeing  = range(1,80);
         return [
-            
+            'meal_id' => random_int(1,8),
+            'ingredient_id' => random_int(1,80)
         ];
     }
 }

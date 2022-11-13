@@ -17,7 +17,8 @@ class MealTagFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'meal_id' => random_int(1,8),
+            'tag_id' => random_int(1,60)
         ];
     }
 }
