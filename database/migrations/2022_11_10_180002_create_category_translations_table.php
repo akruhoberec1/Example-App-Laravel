@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('locale')->index();
             $table->unsignedBigInteger('category_id');
+            $table->string('slug');
             $table->softDeletes();
             $table->timestamps();
             $table->unique(['category_id','locale']);

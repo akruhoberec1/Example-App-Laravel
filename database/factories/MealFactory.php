@@ -18,7 +18,7 @@ class MealFactory extends Factory
     {
 
         return [
-            'category_id' => rand()&20
+            'category_id' => random_int(0,20)
         ];
 
     }

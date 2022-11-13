@@ -17,7 +17,7 @@ class MealIngredientFactory extends Factory
     public function definition()
     {
         return [
-            //
+            
         ];
     }
 }

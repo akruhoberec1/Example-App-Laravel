@@ -70,9 +70,70 @@ class DatabaseSeeder extends Seeder
         });
 
 
-        \App\Models\Tag::factory(60)->create();
+        \App\Models\Tag::factory(60)->create()->each(function($tag){
 
-        \App\Models\Ingredient::factory(80)->create();
+            $slug='Tag-' . $tag->id;
+            $title='Naziv taga ' . $tag->id . ' na HRV jeziku';
+            $translation=\App\Models\TagTranslation::factory()->create([
+                'tag_id'=> $tag->id,
+                'title'  => $title,
+                'slug' => $slug,
+                'locale' => 'hr'
+            ]);
+            $tag->translation()->save($translation);
+            
+            $title='Tag ' . $tag->id . ' title in ENG language';
+            $translation=\App\Models\TagTranslation::factory()->create([
+                'tag_id'=> $tag->id,
+                'title'  => $title,
+                'slug' => $slug,
+                'locale' => 'en'
+            ]);
+            $tag->translation()->save($translation);
+
+            $title='Tag-titel ' . $tag->id . ' in DE Sprache';
+            $translation=\App\Models\TagTranslation::factory()->create([
+                'tag_id'=> $tag->id,
+                'title'  => $title,
+                'slug' => $slug,
+                'locale' => 'de'
+            ]);
+            $tag->translation()->save($translation);
+
+        });
+
+
+        \App\Models\Ingredient::factory(80)->create()->each(function($ingredient){
+
+            $slug='Sastojak-' . $ingredient->id;
+            $title='Naziv sastojka ' . $ingredient->id . ' na HRV jeziku';
+            $translation=\App\Models\IngredientTranslation::factory()->create([
+                'ingredient_id'=> $ingredient->id,
+                'title'  => $title,
+                'slug' => $slug,
+                'locale' => 'hr'
+            ]);
+            $ingredient->translation()->save($translation);
+            
+            $title='Ingredient ' . $ingredient->id . ' title in ENG language';
+            $translation=\App\Models\IngredientTranslation::factory()->create([
+                'ingredient_id'=> $ingredient->id,
+                'title'  => $title,
+                'slug' => $slug,
+                'locale' => 'en'
+            ]);
+            $ingredient->translation()->save($translation);
+
+            $title='Tag-titel ' . $ingredient->id . ' in DE Sprache';
+            $translation=\App\Models\IngredientTranslation::factory()->create([
+                'ingredient_id'=> $ingredient->id,
+                'title'  => $title,
+                'slug' => $slug,
+                'locale' => 'de'
+            ]);
+            $ingredient->translation()->save($translation);
+
+        });
 
         \App\Models\Meal::factory(8)->create()->each(function($meal)
         {

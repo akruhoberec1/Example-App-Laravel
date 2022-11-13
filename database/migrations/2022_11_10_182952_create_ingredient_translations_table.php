@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('locale')->index();
+            $table->string('slug');
             $table->unsignedBigInteger('ingredient_id');
             $table->softDeletes();
             $table->timestamps();
