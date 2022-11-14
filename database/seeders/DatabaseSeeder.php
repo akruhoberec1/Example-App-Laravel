@@ -179,5 +179,8 @@ class DatabaseSeeder extends Seeder
 
         });
 
+        \App\Models\MealIngredient::factory(100)->create();
+        \App\Models\MealTag::factory(100)->create();
+
     }
 }
