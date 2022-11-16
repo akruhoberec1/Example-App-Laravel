@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\App;
 
 class Meal extends Model
 {
@@ -25,6 +26,13 @@ class Meal extends Model
     public function ingredients(){
         return $this->hasMany(MealIngredient::class)->withTrashed();
     }
+
+
+    
+    /*public function scopeMealDetail($request)
+    {
+        return $request->with('meal:id,title,','categories:id,title','tags:id,title,slug','ingredients:id,title,slug');
+    } pokušaj bezveze*/
 
 
 
