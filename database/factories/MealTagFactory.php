@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Generator;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\MealTag>
@@ -17,8 +18,8 @@ class MealTagFactory extends Factory
     public function definition()
     {
         return [
-            'meal_id' => random_int(1,8),
-            'tag_id' => random_int(1,60)
+            'meal_id' => $this->faker->numberBetween(1,8),
+            'tag_id' => $this->faker->unique()->numberBetween(1,60)
         ];
     }
 }
