@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware;
+use App\Http\Controllers\MealController;
+use App\Http\Middleware\SetLocale;
 use App\Models\Meal;
 use App\Models\Category;
 use App\Models\Tag;
@@ -22,6 +23,6 @@ use App\Models\Tag;
     return $request->user();
 });*/
 
-Route::get('/', '\App\Http\Controllers\MealController@index')->middleware('setLocale');
+Route::get('/', '\App\Http\Controllers\MealController@index');
 
 
