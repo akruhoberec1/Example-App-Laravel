@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,9 +18,10 @@ class MealFactory extends Factory
     public function definition()
     {
 
-        return [
-            'category_id' => random_int(1,20)
-        ];
+        $categories = count(Category::all());
 
+        return [
+            'category_id' => $this->faker->numberBetween(0,$categories)
+        ];
     }
 }

@@ -9,5 +9,4 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class CategoryTranslation extends Model
 {
     use HasFactory, SoftDeletes;
-
 }

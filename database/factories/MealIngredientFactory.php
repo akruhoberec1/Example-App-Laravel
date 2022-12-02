@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Meal;
+use App\Models\Ingredient;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,11 +18,12 @@ class MealIngredientFactory extends Factory
      */
     public function definition()
     {
-        $rangemeal = range(1,8);
-        $rangeing  = range(1,80);
+        $meals = count(Meal::all());
+        $ingredients = count(Ingredient::all());
+
         return [
-            'meal_id' => random_int(1,8),
-            'ingredient_id' => random_int(1,80)
+            'meal_id' => $this->faker->numberBetween(1, $meals),
+            'ingredient_id' => $this->faker->numberBetween(1, $ingredients)
         ];
     }
 }

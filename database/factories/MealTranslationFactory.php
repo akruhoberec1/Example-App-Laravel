@@ -17,7 +17,7 @@ class MealTranslationFactory extends Factory
     public function definition()
     {
         return [
-            
+            //
         ];
     }
 }

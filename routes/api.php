@@ -1,12 +1,13 @@
 <?php
 
+use App\Http\Controllers\Api\V1\CategoryController;
+use App\Http\Controllers\Api\V1\IngredientController;
+use App\Http\Controllers\Api\V1\MealController;
+use App\Http\Controllers\Api\V1\MealTranslationController;
+use App\Http\Controllers\Api\V1\TagController;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MealController;
-use App\Http\Middleware\SetLocale;
-use App\Models\Meal;
-use App\Models\Category;
-use App\Models\Tag;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +20,15 @@ use App\Models\Tag;
 |
 */
 
-/*Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});*/
+});
 
-Route::get('/', '\App\Http\Controllers\MealController@index');
-
-
+Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function()
+{
+    Route::apiResource('meals',MealController::class);
+    Route::apiResource('mealstranslation',MealTranslationController::class);
+    Route::apiResource('categories',CategoryController::class);
+    Route::apiResource('tags',TagController::class);
+    Route::apiResource('ingredients',IngredientController::class);
+});

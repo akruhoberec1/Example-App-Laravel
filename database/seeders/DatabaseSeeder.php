@@ -14,12 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+     
 
         \App\Models\Language::factory()->create([
             'title' => 'Hrvatski',
@@ -139,7 +134,7 @@ class DatabaseSeeder extends Seeder
         {
             
             $title       = 'Naslov jela ' . $meal->id . ' na HRV jeziku';
-            $description = 'Opis jela ' . $meal->id . 'na HRV jeziku';
+            $description = 'Opis jela ' . $meal->id . ' na HRV jeziku';
             $translation = \App\Models\MealTranslation::factory()->create([
                 'meal_id'=> $meal->id,
                 'title'  => $title,
@@ -159,8 +154,8 @@ class DatabaseSeeder extends Seeder
             $meal->translation()->save($translation);
 
             $category_id = rand()&20;
-            $title       = 'Mahlzeit ' . $meal->id . ' Titel in DE Sprache';
-            $description = 'Mahlzeit ' . $meal->id . ' Beschreibung el in DE Sprache';
+            $title       = 'Gerichtname ' . $meal->id . ' auf DE Sprache';
+            $description = 'Beschreibung von Gericht ' . $meal->id . ' auf DE Sprache';
             $translation = \App\Models\MealTranslation::factory()->create([
                 'meal_id'=> $meal->id,
                 'title'  => $title,
