@@ -2,11 +2,12 @@
 
 namespace App\Http\Resources\V1;
 
+use App\Models\TagTranslation;
+use App\Http\Resources\V1\TagTranslationResource;
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\V1\MealResource;
-use App\Models\MealTranslation;
 
-class MealTranslationResource extends JsonResource
+
+class TagResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,10 +17,11 @@ class MealTranslationResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'title' => $this->title,
-            'description' => $this->description, 
-            'status' => 'created'
+        return          
+        [
+            'id' => $this->id,
+            'title' => TagTranslationResource::collection($this->title),
+            'slug' =>  TagTranslationResource::collection($this->slug)
         ];
     }
 }

@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\TagTranslation;
+use App\Http\Resources\V1\TagTranslationResource;
 use App\Http\Requests\StoreTagTranslationRequest;
 use App\Http\Requests\UpdateTagTranslationRequest;
+use Illuminate\http\Request;
 
 class TagTranslationController extends Controller
 {
@@ -14,9 +16,12 @@ class TagTranslationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $taggs = TagTranslation::all();
+        //return $tags;
+
+        return TagTranslationResource::collection($taggs);
     }
 
     /**

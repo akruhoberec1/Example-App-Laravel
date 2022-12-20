@@ -16,4 +16,13 @@ class Ingredient extends Model
         return $this->hasOne(IngredientTranslation::class)->where('locale', app()->getLocale())->withTrashed();
     }
 
+    public function ingredienttranslation(){
+        return $this->hasOne(IngredientTranslation::class)->withTrashed();
+    }
+
+    public function meals()
+    {
+        return $this->belongsToMany(Meal::class, 'meal_ingredients')->withTrashed();
+    }
+
 }

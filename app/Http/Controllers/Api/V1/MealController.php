@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Meal;
 use App\Http\Requests\StoreMealRequest;
 use App\Http\Requests\UpdateMealRequest;
-use App\Http\Request;
+use Illuminate\http\Request;;
 use App\Http\Resources\V1\MealResource;
+
 
 class MealController extends Controller
 {
@@ -16,9 +17,14 @@ class MealController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Meal::all();
+        
+        $meals = Meal::with('mealtranslation','category','ingredients','tags','tagtranslations')->get();
+
+        return $meals;
+
+        //return MealResource::collection($meals);
     }
 
     /**

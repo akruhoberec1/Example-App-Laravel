@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Tag;
 use App\Http\Requests\StoreTagRequest;
 use App\Http\Requests\UpdateTagRequest;
+use App\Http\Resources\V1\TagResource;
+use App\Models\TagTranslation;
+use App\Http\Resources\V1\TagTranslationResource;
+use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
@@ -14,9 +18,13 @@ class TagController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Tag::all();
+
+        $tags = Tag::with('tagtranslation','meals')->get();
+        return $tags;
+
+        //return TagResource::collection($tags);
     }
 
     /**

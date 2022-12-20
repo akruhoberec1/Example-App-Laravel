@@ -9,4 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class IngredientTranslation extends Model
 {
     use HasFactory, SoftDeletes;
+
+    public function ingredient(){
+        return $this->belongsTo(Ingredient::class)->withTrashed();
+    }
 }

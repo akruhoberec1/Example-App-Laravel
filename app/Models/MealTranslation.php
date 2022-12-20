@@ -9,4 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class MealTranslation extends Model
 {
     use HasFactory, SoftDeletes;
+
+    public function meals(){
+        return $this->belongsTo(Meal::class);
+    }
 }

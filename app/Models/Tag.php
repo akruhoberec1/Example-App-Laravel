@@ -14,9 +14,13 @@ class Tag extends Model
     {
         return $this->hasOne(TagTranslation::class)->where('locale', app()->getLocale())->withTrashed();
     }
+    
+    public function tagtranslation(){
+        return $this->hasOne(TagTranslation::class, 'tag_id', 'id')->withTrashed();
+    }
 
     public function meals()
     {
-        return $this->belongsTo(MealTag::class)->withTrashed();
+        return $this->belongsToMany(Meal::class, 'meal_tags')->withTrashed();
     }
 }

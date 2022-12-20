@@ -3,10 +3,9 @@
 namespace App\Http\Resources\V1;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\V1\MealResource;
-use App\Models\MealTranslation;
+use App\Models\IngredientTranslation;
 
-class MealTranslationResource extends JsonResource
+class IngredientTranslationResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,10 +15,6 @@ class MealTranslationResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'title' => $this->title,
-            'description' => $this->description, 
-            'status' => 'created'
-        ];
+        return parent::toArray($request);
     }
 }

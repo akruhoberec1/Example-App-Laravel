@@ -15,9 +15,13 @@ class Category extends Model
         return $this->hasOne(CategoryTranslation::class)->where('locale', app()->getLocale())->withTrashed();
     }
 
+    public function categorytranslation(){
+        return $this->hasOne(CategoryTranslation::class)->withTrashed();
+    }
+
     public function meals()
     {    
-        return $this->belongsToMany(Meal::class);
+        return $this->hasOne(Meal::class);
     }
 
 }

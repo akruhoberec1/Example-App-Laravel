@@ -20,7 +20,7 @@ class MealTranslationController extends Controller
      */
     public function index(Request $request)
     {
-        $filter = new MealTranslationQuery();
+        /*$filter = new MealTranslationQuery();
         $queryItems = $filter -> transform($request);
 
         if(count($queryItems) == 0){
@@ -31,7 +31,7 @@ class MealTranslationController extends Controller
 
         MealTranslation::where($queryItems);
     
-        return new MealTranslationCollection(MealTranslation::paginate());
+        return new MealTranslationCollection(MealTranslation::paginate()); */
     }
 
     /**

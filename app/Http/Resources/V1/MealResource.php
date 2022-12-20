@@ -3,6 +3,8 @@
 namespace App\Http\Resources\V1;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Models\Meal;
+use App\Models\MealTranslation;
 
 class MealResource extends JsonResource
 {
@@ -16,10 +18,7 @@ class MealResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->title,
-            'description' => $this->description,
-            'status' => $this->status
-    
+            'category_id' => $this->category_id,
         ];
     }
 }

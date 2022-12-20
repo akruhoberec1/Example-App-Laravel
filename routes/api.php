@@ -24,11 +24,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function()
+/* Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function()
 {
     Route::apiResource('meals',MealController::class);
     Route::apiResource('mealstranslation',MealTranslationController::class);
     Route::apiResource('categories',CategoryController::class);
     Route::apiResource('tags',TagController::class);
     Route::apiResource('ingredients',IngredientController::class);
-});
+}); */
+
+Route::get('meals','App\Http\Controllers\Api\V1\MealController@index');
+Route::get('tags','App\Http\Controllers\Api\V1\TagController@index');
+Route::get('taggs','App\Http\Controllers\Api\V1\TagTranslationController@index');

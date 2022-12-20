@@ -12,11 +12,11 @@ class MealTag extends Model
 
     public function meals()
     {
-        $this->hasMany(Meal::class)->withTrashed();
+        $this->hasMany(Meal::class, 'meal_id')->withTrashed();
     }
 
     public function tags()
     {
-        $this->hasMany(Tag::class)->withTrashed();
+        $this->hasMany(Tag::class, 'tag_id')->withTrashed();
     }
 }
