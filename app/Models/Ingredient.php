@@ -11,14 +11,11 @@ class Ingredient extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public function translation()
+    public function translations()
     {
         return $this->hasOne(IngredientTranslation::class)->where('locale', app()->getLocale())->withTrashed();
     }
 
-    public function ingredienttranslation(){
-        return $this->hasOne(IngredientTranslation::class)->withTrashed();
-    }
 
     public function meals()
     {

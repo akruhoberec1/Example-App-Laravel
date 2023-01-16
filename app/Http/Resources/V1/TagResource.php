@@ -17,11 +17,13 @@ class TagResource extends JsonResource
      */
     public function toArray($request)
     {
-        return          
-        [
-            'id' => $this->id,
-            'title' => TagTranslationResource::collection($this->title),
-            'slug' =>  TagTranslationResource::collection($this->slug)
-        ];
+        $translation = $this->translations->where('tag_id', $this->id)->first();
+            
+        return 
+            [
+                'id' => $this->id,
+                'title' => $translation->title,
+                'slug' => $translation->slug,
+            ];
     }
 }

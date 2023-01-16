@@ -10,17 +10,17 @@ class Tag extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public function translation()
+    public function translations()
     {
         return $this->hasOne(TagTranslation::class)->where('locale', app()->getLocale())->withTrashed();
     }
     
-    public function tagtranslation(){
+/*     public function tagtranslation(){
         return $this->hasOne(TagTranslation::class, 'tag_id', 'id')->withTrashed();
-    }
+    } */
 
     public function meals()
     {
         return $this->belongsToMany(Meal::class, 'meal_tags')->withTrashed();
-    }
+    } 
 }

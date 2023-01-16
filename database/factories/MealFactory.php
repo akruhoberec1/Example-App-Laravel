@@ -21,7 +21,8 @@ class MealFactory extends Factory
         $categories = count(Category::all());
 
         return [
-            'category_id' => $this->faker->numberBetween(0,$categories)
+            'category_id' => $this->faker->numberBetween(0,$categories),
+            'deleted_at' => rand(0,5) ? null : now()->addMinutes(10),
         ];
     }
 }

@@ -21,10 +21,10 @@ class TagController extends Controller
     public function index(Request $request)
     {
 
-        $tags = Tag::with('tagtranslation','meals')->get();
-        return $tags;
+        $tags = Tag::with('translations')->get();
+        //return $tags;
 
-        //return TagResource::collection($tags);
+        return TagResource::collection($tags);
     }
 
     /**

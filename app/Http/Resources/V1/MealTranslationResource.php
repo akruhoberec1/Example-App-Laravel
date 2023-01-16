@@ -16,10 +16,6 @@ class MealTranslationResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'title' => $this->title,
-            'description' => $this->description, 
-            'status' => 'created'
-        ];
+       //
     }
 }

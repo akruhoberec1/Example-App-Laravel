@@ -8,24 +8,43 @@ use App\Http\Requests\StoreMealRequest;
 use App\Http\Requests\UpdateMealRequest;
 use Illuminate\http\Request;;
 use App\Http\Resources\V1\MealResource;
+use App\Repositories\MealRepository;
+use App\Http\Requests\mealIndex;
 
 
 class MealController extends Controller
 {
+
+    protected $mealRepository;
+
+    public function __construct(MealRepository $mealRepository){
+        $this->mealRepository = $mealRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(mealIndex $request)
     {
+        $meals = $this->mealRepository->search($request);
+        return MealResource::collection($meals);
         
-        $meals = Meal::with('mealtranslation','category','ingredients','tags','tagtranslations')->get();
+        //$meals = Meal::with('translations','category.translations','tags.translations','ingredients.translations')->paginate(5);
 
-        return $meals;
+        //return $meals;
+/*         $meals = Meal::when($request->has('with_tags'), function($query){
+            return $query->with(['tags.translations']);
+        })->when($request->has('with_ingredients'), function($query){
+            return $query->with(['ingredients.translations']);
+        })->when($request->has('with_category'), function($query){
+            return $query->with(['category.translations']);
+        })->paginate(5);
 
-        //return MealResource::collection($meals);
-    }
+        return MealResource::collection($meals);
+        */
+    } 
 
     /**
      * Show the form for creating a new resource.

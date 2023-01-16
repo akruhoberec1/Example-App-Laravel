@@ -21,7 +21,7 @@ class MealTranslationController extends Controller
     public function index(Request $request)
     {
         /*$filter = new MealTranslationQuery();
-        $queryItems = $filter -> transform($request);
+        $queryItems = $filter ->transform($request);
 
         if(count($queryItems) == 0){
             return new MealTranslationCollection(MealTranslation::paginate());

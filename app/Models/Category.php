@@ -10,13 +10,9 @@ class Category extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public function translation()
+    public function translations()
     {
         return $this->hasOne(CategoryTranslation::class)->where('locale', app()->getLocale())->withTrashed();
-    }
-
-    public function categorytranslation(){
-        return $this->hasOne(CategoryTranslation::class)->withTrashed();
     }
 
     public function meals()

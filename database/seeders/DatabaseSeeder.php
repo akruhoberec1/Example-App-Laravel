@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => $slug,
                 'locale' => 'hr'
             ]);
-            $category->translation()->save($translation);
+            $category->translations()->save($translation);
             
             $title='Category ' . $category->id . ' title in ENG language';
             $translation=\App\Models\CategoryTranslation::factory()->create([
@@ -51,7 +51,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => $slug,
                 'locale' => 'en'
             ]);
-            $category->translation()->save($translation);
+            $category->translations()->save($translation);
 
             $title='Kategorietitel ' . $category->id . ' in DE Sprache';
             $translation=\App\Models\CategoryTranslation::factory()->create([
@@ -60,7 +60,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => $slug,
                 'locale' => 'de'
             ]);
-            $category->translation()->save($translation);
+            $category->translations()->save($translation);
 
         });
 
@@ -75,7 +75,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => $slug,
                 'locale' => 'hr'
             ]);
-            $tag->translation()->save($translation);
+            $tag->translations()->save($translation);
             
             $title='Tag ' . $tag->id . ' title in ENG language';
             $translation=\App\Models\TagTranslation::factory()->create([
@@ -84,7 +84,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => $slug,
                 'locale' => 'en'
             ]);
-            $tag->translation()->save($translation);
+            $tag->translations()->save($translation);
 
             $title='Tag-titel ' . $tag->id . ' in DE Sprache';
             $translation=\App\Models\TagTranslation::factory()->create([
@@ -93,7 +93,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => $slug,
                 'locale' => 'de'
             ]);
-            $tag->translation()->save($translation);
+            $tag->translations()->save($translation);
 
         });
 
@@ -108,7 +108,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => $slug,
                 'locale' => 'hr'
             ]);
-            $ingredient->translation()->save($translation);
+            $ingredient->translations()->save($translation);
             
             $title='Ingredient ' . $ingredient->id . ' title in ENG language';
             $translation=\App\Models\IngredientTranslation::factory()->create([
@@ -117,7 +117,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => $slug,
                 'locale' => 'en'
             ]);
-            $ingredient->translation()->save($translation);
+            $ingredient->translations()->save($translation);
 
             $title='Tag-titel ' . $ingredient->id . ' in DE Sprache';
             $translation=\App\Models\IngredientTranslation::factory()->create([
@@ -126,7 +126,7 @@ class DatabaseSeeder extends Seeder
                 'slug' => $slug,
                 'locale' => 'de'
             ]);
-            $ingredient->translation()->save($translation);
+            $ingredient->translations()->save($translation);
 
         });
 
@@ -141,7 +141,7 @@ class DatabaseSeeder extends Seeder
                 'description' => $description,
                 'locale' => 'hr'
             ]);
-            $meal->translation()->save($translation);
+            $meal->translations()->save($translation);
 
             $title       = 'Meal ' . $meal->id . ' title in ENG language';
             $description = 'Meal ' . $meal->id . ' description in ENG language';
@@ -151,7 +151,7 @@ class DatabaseSeeder extends Seeder
                 'description' => $description,
                 'locale' => 'en'
             ]);
-            $meal->translation()->save($translation);
+            $meal->translations()->save($translation);
 
             $category_id = rand()&20;
             $title       = 'Gerichtname ' . $meal->id . ' auf DE Sprache';
@@ -162,7 +162,7 @@ class DatabaseSeeder extends Seeder
                 'description' => $description,
                 'locale' => 'de'
             ]);
-            $meal->translation()->save($translation);
+            $meal->translations()->save($translation);
 
             \App\Models\MealTag::factory(rand(1,5))->create(
                 ['meal_id' => $meal->id]
@@ -174,8 +174,7 @@ class DatabaseSeeder extends Seeder
 
         });
 
-        \App\Models\MealIngredient::factory(20)->create();
-        \App\Models\MealTag::factory(20)->create();
+
 
     }
 }

@@ -16,8 +16,8 @@ class IngredientResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => new IngredientTranslationResource($this->title),
-            'slug' => new IngredientTranslationResource($this->slug)
+            'title' => $this->translations->title,
+            'slug' => $this->translations->slug,
         ];
     }
 }
