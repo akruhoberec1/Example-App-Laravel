@@ -34,4 +34,5 @@ use Illuminate\Support\Facades\Route;
     Route::apiResource('ingredients',IngredientController::class);
 });  */
 
-Route::get('meals','App\Http\Controllers\Api\V1\MealController@index')->middleware('lang');
+    Route::get('meals','App\Http\Controllers\Api\V1\MealController@index')->middleware('lang');
+

@@ -31,6 +31,8 @@ class Meal extends Model
         return $this->belongsToMany(Ingredient::class, 'meal_ingredients')->withTrashed();
     }
 
+    //pretraga podataka koji su u drugom vremenskom razdoblju bili izbrisane ili modificirane
+
     public function scopeGetDiffTime($query, $data){
         $query->when(!empty($data['diff_time']), function($query) use ($data) {
             $query->withTrashed();
@@ -64,7 +66,7 @@ class Meal extends Model
                 $query->whereHas('tags', function ($query) use ($data){
                     $tags = $data['tags'];
                     $query->whereIn('tag_id', $tags);
-                    //$query->havingRaw('COUNT(tag_id) = ?', [count($tags)]);
+                    //$query->havingRaw('COUNT(tag_id) = ?', [count($tags)]); - obrisati komentar za pretragu jela koja zadrže izričito tagove po kojima želimo filtrirati podatke
                 });
             });
         });
