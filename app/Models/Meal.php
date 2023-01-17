@@ -64,7 +64,7 @@ class Meal extends Model
                 $query->whereHas('tags', function ($query) use ($data){
                     $tags = $data['tags'];
                     $query->whereIn('tag_id', $tags);
-                    $query->havingRaw('COUNT(tag_id) = ?', [count($tags)]);
+                    //$query->havingRaw('COUNT(tag_id) = ?', [count($tags)]);
                 });
             });
         });

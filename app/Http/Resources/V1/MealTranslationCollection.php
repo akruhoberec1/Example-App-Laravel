@@ -14,6 +14,9 @@ class MealTranslationCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'title' => $this->title,
+            'description' => $this->description,
+        ];
     }
 }

@@ -16,20 +16,13 @@ class MealResource extends JsonResource
      */
     public function toArray($request)
     {
-        $translation = $this->translations->where('meal_id', $this->id)->first();
-        $category_translation = $this->category->translations->where('category_id', $this->category->id)->first();
-
 
         return [
             'id' => $this->id,
-            'title' => $translation->title,
-            'decription' => $translation->description,
+            'title' => $this->translations->title,
+            'decription' => $this->translations->description,
             'status' => !empty($request->diff_time) ? $this->checkDiffTime($request->diff_time) : 'created',
-            'category' => [
-                'id' => $this->category->id,
-                'title' => $category_translation->title,
-                'slug' => $category_translation->slug,
-            ],
+            'category' => CategoryResource::collection($this->whenLoaded('category')),
             'tags' => TagResource::collection($this->whenLoaded('tags')),
             'ingredients' => IngredientResource::collection($this->whenLoaded('ingredients')),
 

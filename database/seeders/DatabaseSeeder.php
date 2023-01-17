@@ -119,7 +119,7 @@ class DatabaseSeeder extends Seeder
             ]);
             $ingredient->translations()->save($translation);
 
-            $title='Tag-titel ' . $ingredient->id . ' in DE Sprache';
+            $title='Titel der Zutat ' . $ingredient->id . ' auf Deutsch';
             $translation=\App\Models\IngredientTranslation::factory()->create([
                 'ingredient_id'=> $ingredient->id,
                 'title'  => $title,
@@ -173,8 +173,6 @@ class DatabaseSeeder extends Seeder
             );
 
         });
-
-
 
     }
 }

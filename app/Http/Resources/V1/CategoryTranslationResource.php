@@ -17,8 +17,8 @@ class CategoryTranslationResource extends JsonResource
     {
         return [
             'id' => $this->category_id,
-            'title' => $this->title,
-            'slug' => $this->slug
+            'title' => $this->translations->title,
+            'slug' => $this->translations->slug
         ];
     }
 }
