@@ -48,7 +48,7 @@ class Meal extends Model
                     $query->where('category_id', $data['category']);
                 }elseif(strtoupper($data['category']) == 'NULL'){
                     $query->whereNull('category_id');
-                }elseif(strtoupper($data['category_id']) == '!NULL'){
+                }elseif(strtoupper($data['category']) == '!NULL'){
                     $query->whereNotNull('category_id');
                 }
             });

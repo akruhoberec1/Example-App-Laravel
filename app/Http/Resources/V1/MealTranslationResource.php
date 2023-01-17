@@ -16,6 +16,6 @@ class MealTranslationResource extends JsonResource
      */
     public function toArray($request)
     {
-       
+       //
     }
 }

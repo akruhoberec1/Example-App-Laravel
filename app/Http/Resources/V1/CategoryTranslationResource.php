@@ -16,9 +16,8 @@ class CategoryTranslationResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->category_id,
-            'title' => $this->translations->title,
-            'slug' => $this->translations->slug
+            'title' => $this->title,
+            'slug' => $this->slug
         ];
     }
 }

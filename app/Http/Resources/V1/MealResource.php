@@ -22,7 +22,7 @@ class MealResource extends JsonResource
             'title' => $this->translations->title,
             'decription' => $this->translations->description,
             'status' => !empty($request->diff_time) ? $this->checkDiffTime($request->diff_time) : 'created',
-            'category' => CategoryResource::collection($this->whenLoaded('category')),
+            'category' => new CategoryResource($this->whenLoaded('category')),
             'tags' => TagResource::collection($this->whenLoaded('tags')),
             'ingredients' => IngredientResource::collection($this->whenLoaded('ingredients')),
 
