@@ -4,7 +4,7 @@ Upute:
 - git clone https://github.com/akruhoberec1/Example-App-Laravel.git
 - composer update
 - php artisan migrate --seed (ili migrate:fresh --seed ukoliko baza s imenom postoji, obratiti pozornost na ime baze u .env datoteci)
-- http://imelokalnogservera/api/meals -> dodati query npr. "?per_page=3&lang=de&category=!NULL&with=tags,ingredients,category&diff_time=1"
+- http://imelokalnogservera/api/meals -> dodati query npr. "?per_page=3&lang=de&category=!NULL&with=tags,ingredients,category&diff_time=1" ili query tipa = papanje.dev/api/meals?lang=en&diff_time=1&with=tags,ingredients,category&category=!NULL&per_page=5&page=2 
 
 Baza se sastoji od tablice jela koja mogu imati više tagova i sastojaka, a mogu pripadati jednoj ili niti jednoj kategoriji. 
 Sve tablice imaju vlastite tablice prijevoda te prema parametru "lang" filtriramo koji će podaci biti vidljivi. Tablica languages nema tablicu prijevoda.
